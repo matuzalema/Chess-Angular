@@ -1,0 +1,8 @@
+
+<div class='chees-board'>
+  <div class='tile' *ngFor='let tile of arr'>
+    <div class='tile' *ngFor='let item of tile' [ngStyle]="{backgroundColor: getColor(item)}"></div>
+  </div>
+
+  <div class='tile'></div>
+</div>

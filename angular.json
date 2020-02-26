@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "chees": {
@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "chees"
+    }
+  },
+  "defaultProject": "chees",
+  "cli": {
+    "analytics": "2112d794-01c7-4eed-bc53-210664203b78"
+  }
 }
