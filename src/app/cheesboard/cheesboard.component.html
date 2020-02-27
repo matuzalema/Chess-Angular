@@ -1,8 +1,6 @@
 
 <div class='chees-board'>
   <div class='tile' *ngFor='let tile of arr'>
-    <div class='tile' *ngFor='let item of tile' [ngStyle]="{backgroundColor: getColor(item)}"></div>
+    <div class='tile' (click)='showDataOfClicledTile(item)' *ngFor='let item of tile' [ngStyle]="{backgroundColor: getColor(item)}">x: {{item.x}} y {{item.y}}</div>
   </div>
-
-  <div class='tile'></div>
 </div>

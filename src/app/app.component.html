@@ -1,3 +1,24 @@
 <h1>Szachy dla początkujących</h1>
+<div class='figures'>
+  <img (click)="getFigure('hetman')" src="../assets/images/hetman.png" width="35px" height="50px" alt="tower">
+  <img (click)="getFigure('king')" src="../assets/images/king1.png" width="35px" height="50px"
+    alt="king">
+  <img (click)="getFigure('horse')" src="../assets/images/horse.png" width="40px" height="50px"
+    alt="horse">
+  <img (click)="getFigure('pawn')" src="../assets/images/pawn.png" width="30px" height="50px"
+    alt="pawn">
+  <img (click)="getFigure('runner')" src="../assets/images/runner.png" width="38px" height="50px"
+    alt="runner">
+
+  <img (click)="getFigure('tower')" src="../assets/images/tower1.png" width="38px" height="50px"
+    alt="tower">
+</div>
+<button (click)='createTails()'>start</button>
+<form (ngSubmit)='onSubmit()' #contactForm='ngForm'>
+  <label for='xValue'>Wpisza wartość x: </label>
+  <input [value]='xValue' id='xValue' name='xValue' class='input-x-value' type='text' (input)='getXValue($event)' >
+  <label for='yValue'>Wpisz wartość y: </label>
+  <input [value]='yValue' id='yValue' name='yValue' class='input-y-value' type='text' (input)='getYValue($event)'>
+  <button type='submit'>wykonaj ruch</button>
+</form>
 <app-cheesboard [arr]='arr'></app-cheesboard>
-<button (click)='createTails()'>button</button>
