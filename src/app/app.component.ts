@@ -8,8 +8,8 @@ import { getLocaleDateFormat } from '@angular/common';
 })
 export class AppComponent {
   title = 'chees';
-  xValue = 0;
-  yValue = 5;
+  xValue = null;
+  yValue = null;
   choosenFigure = '';
   // figures
   king = '../assets/images/king1.png';
@@ -17,7 +17,7 @@ export class AppComponent {
   horse = '../assets/images/horse.png';
   pawn = '../assets/images/pawn.png';
   runner = '../assets/images/runner.png';
-  towen = '../assets/images/tower1.png';
+  tower = '../assets/images/tower1.png';
 
 
   arr: Tile[][] = [];
@@ -30,7 +30,7 @@ export class AppComponent {
         this.arr[i][j] = tile;
       }
     }
-    this.arr[this.xValue][this.yValue].hightlight = true;
+    // this.arr[this.xValue][this.yValue].highlight = true;
     console.log(this.arr);
   }
 
@@ -41,8 +41,11 @@ export class AppComponent {
     this.yValue = event.target.value;
   }
   onSubmit() {
-    this.arr[this.xValue][this.yValue].hightlight = true;
+    this.arr[this.xValue][this.yValue].choosenFile = true;
     this.arr[this.xValue][this.yValue].choosenFigure = this.choosenFigure;
+    this.xValue = null;
+    this.yValue = null;
+    console.log(this.arr);
   }
 
   getFigure(figure) {
@@ -54,9 +57,9 @@ export class Tile {
   constructor(
     public x: number,
     public y: number,
-    public hightlight: boolean,
+    public highlight: boolean,
     public figure: string,
-    public choosen: boolean,
+    public choosenFile: boolean,
     public choosenFigure: string,
     public imageSrc: string
   ) {}
