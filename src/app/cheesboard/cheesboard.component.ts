@@ -11,7 +11,10 @@ export class CheesboardComponent implements OnInit {
   @Input() arr: Tile[][];
   @Input() hetman;
   @Input() king;
+  @Input() horse;
   @Input() tower;
+  @Input() runner;
+  @Input() pawn;
   constructor() { }
 
   ngOnInit(): void {
@@ -72,9 +75,15 @@ export class CheesboardComponent implements OnInit {
       return true;
     }
   }
-
-  showDataOfClicledTile(item: Tile) {
+  getTailClicked(item: Tile) {
     console.log('Kliknięty tile: ' + 'x: ' + item.x + '  y: ' + item.y);
-    this.highlightPosibleKingMoves(item);
+    for (let i = 0; i < 8; i++) {
+      for(let j = 0; j < 8; j++) {
+        this.arr[i][j].highlight = false;
+      }
+    }
+    if (item.choosenFile) {
+      this.highlightPosibleKingMoves(item);
+    }
   }
 }

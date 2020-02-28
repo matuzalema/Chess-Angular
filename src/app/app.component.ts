@@ -12,12 +12,13 @@ export class AppComponent {
   yValue = null;
   choosenFigure = '';
   // figures
+  tower = '../assets/images/tower.png';
   king = '../assets/images/king1.png';
   hetman = '../assets/images/hetman.png';
   horse = '../assets/images/horse.png';
   pawn = '../assets/images/pawn.png';
   runner = '../assets/images/runner.png';
-  tower = '../assets/images/tower1.png';
+  // tower = '../assets/images/tower1.png';
 
 
   arr: Tile[][] = [];
