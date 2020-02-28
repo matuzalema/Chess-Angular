@@ -43,7 +43,7 @@ export class AppComponent {
   }
   onSubmit() {
     this.arr[this.xValue][this.yValue].choosenFile = true;
-    this.arr[this.xValue][this.yValue].choosenFigure = this.choosenFigure;
+    this.arr[this.xValue][this.yValue].figure = this.choosenFigure;
     this.xValue = null;
     this.yValue = null;
     console.log(this.arr);
@@ -61,7 +61,6 @@ export class Tile {
     public highlight: boolean,
     public figure: string,
     public choosenFile: boolean,
-    public choosenFigure: string,
     public imageSrc: string
   ) {}
 }

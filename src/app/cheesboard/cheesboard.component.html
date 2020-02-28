@@ -2,12 +2,12 @@
 <div class='chees-board'>
   <div class='tile' *ngFor='let tile of arr'>
     <div class='tile' (click)='getTailClicked(item)' *ngFor='let item of tile' [ngStyle]="{backgroundColor: getColor(item)}">
-    <ng-container *ngIf="item.choosenFile && item.choosenFigure==='king'; else towerFigure">
+    <ng-container *ngIf="item.choosenFile && item.figure==='king'; else towerFigure">
       <img class='figureOnBoard' src="{{king}}" width='25px'>
     </ng-container>
 
     <ng-template #towerFigure>
-      <div *ngIf="item.choosenFile && item.choosenFigure==='tower'">
+      <div *ngIf="item.choosenFile && item.figure==='tower'">
         <img class='figureOnBoard' src="{{tower}}" width='25px'>
       </div>
     </ng-template>
