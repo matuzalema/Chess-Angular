@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "chees": {
+    "learn-chees": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/chees",
+            "outputPath": "dist/learn-chees",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "chees:build"
+            "browserTarget": "learn-chees:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "chees:build:production"
+              "browserTarget": "learn-chees:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "chees:build"
+            "browserTarget": "learn-chees:build"
           }
         },
         "test": {
@@ -114,19 +114,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "chees:serve"
+            "devServerTarget": "learn-chees:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "chees:serve:production"
+              "devServerTarget": "learn-chees:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "chees",
+  "defaultProject": "learn-chees",
   "cli": {
-    "analytics": "2112d794-01c7-4eed-bc53-210664203b78"
+    "analytics": "28396de3-908d-43fb-9b00-3023da2503c0"
   }
 }
