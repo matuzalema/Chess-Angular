@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { OuterSubscriber } from 'rxjs/internal/OuterSubscriber';
+// import { OuterSubscriber } from 'rxjs/internal/OuterSubscriber';
+import { NameService } from '../services/name.service';
 
 @Component({
   selector: "app-home",
@@ -8,17 +8,12 @@ import { OuterSubscriber } from 'rxjs/internal/OuterSubscriber';
   styleUrls: ["./home.component.scss"]
 })
 export class HomeComponent implements OnInit {
-  constructor(private router: Router) {}
+  public constructor(private nameService: NameService) { }
   name: string;
 
-  ngOnInit(): void {}
-  showPrompt() {
-    this.name = prompt("wpisz swoje imię");
-    if (this.name === "") {
-      this.router.navigate(["/home"]);
-      document.getElementById('name-validate-field').innerHTML = 'Wpisz prawidłowe imię';
-    } else {
-      this.router.navigate(["/board"]);
-    }
+  ngOnInit(): void {
+  }
+  showNamePrompt(){
+    this.nameService.showPrompt();
   }
 }

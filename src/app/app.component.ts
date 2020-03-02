@@ -8,6 +8,7 @@ import { getLocaleDateFormat } from '@angular/common';
 })
 export class AppComponent {
   title = 'chees';
+  getName = 'George';
 }
 export class Tile {
   constructor(

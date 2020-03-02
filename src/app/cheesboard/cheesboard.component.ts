@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {Tile} from '../app.component';
 import { CheckboxControlValueAccessor } from '@angular/forms';
+import { NameService } from '../services/name.service';
 
 @Component({
   selector: "app-cheesboard",
@@ -14,6 +15,7 @@ export class CheesboardComponent implements OnInit {
   yValue = null;
   lastClicked: Tile;
   num = 8;
+  name = '';
   // figures
   tower = "../../assets/images/tower.png";
   king = "../../assets/images/king1.png";
@@ -22,13 +24,14 @@ export class CheesboardComponent implements OnInit {
   pawn = "../../assets/images/pawn.png";
   runner = "../../assets/images/runner.png";
 
-  constructor() {}
+  public constructor(private nameService: NameService) {}
 
   ngOnInit(): void {
     this.createTails();
   }
 
   getTailClicked(item: Tile) {
+    document.getElementById('incorrect-move-info').innerHTML = '';
     this.infAboutIncorrectClick(item);
     if (typeof this.lastClicked === 'undefined') {
       if (item.figure !== '') {
@@ -56,7 +59,7 @@ export class CheesboardComponent implements OnInit {
 
   infAboutIncorrectClick(item: Tile){
     if(item.figure === '' && !item.highlight && this.lastClicked.figure !== ''){
-      document.getElementById('incorrect-move-info').innerHTML = this.name + ', ten ruch jest niedozwolony';
+      document.getElementById('incorrect-move-info').innerHTML = this.nameService.name + ', ten ruch jest niedozwolony';
     }
   }
 

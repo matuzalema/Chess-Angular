@@ -7,12 +7,13 @@ import { CheesboardComponent } from './cheesboard/cheesboard.component';
 import { AppRoutingModule } from './app.routing.module';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { NameService } from './services/name.service';
 // import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [AppComponent, CheesboardComponent, HomeComponent, PageNotFoundComponent],
   imports: [BrowserModule, FormsModule, AppRoutingModule],
-  providers: [],
+  providers: [NameService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
