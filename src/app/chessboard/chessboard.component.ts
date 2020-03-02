@@ -3,11 +3,11 @@ import {Tile} from '../app.component';
 import { NameService } from '../services/name.service';
 
 @Component({
-  selector: 'app-cheesboard',
-  templateUrl: './cheesboard.component.html',
-  styleUrls: ['./cheesboard.component.scss']
+  selector: 'app-chessboard',
+  templateUrl: './chessboard.component.html',
+  styleUrls: ['./chessboard.component.scss']
 })
-export class CheesboardComponent implements OnInit {
+export class ChessboardComponent implements OnInit {
   arr: Tile[][] = [];
   choosenFigure = '';
   xValue = null;

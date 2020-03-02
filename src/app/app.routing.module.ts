@@ -1,6 +1,6 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { CheesboardComponent } from './cheesboard/cheesboard.component';
+import { ChessboardComponent } from './chessboard/chessboard.component';
 import {HomeComponent} from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
@@ -12,7 +12,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'board',
-    component: CheesboardComponent
+    component: ChessboardComponent
   },
   {
     path: 'home',
