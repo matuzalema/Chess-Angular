@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {Tile} from '../app.component';
-import { CheckboxControlValueAccessor } from '@angular/forms';
 import { NameService } from '../services/name.service';
 
 @Component({
@@ -70,8 +69,9 @@ export class CheesboardComponent implements OnInit {
     } else if (item.figure === "tower") {
       this.highlightPosibleTowerMoves(item);
       this.lastClicked = item;
-    } else {
+    } else if (item.figure === 'horse') {
       this.highlightPosibleHorseMoves(item);
+      this.lastClicked = item;
     }
   }
   addHightlight(item: Tile) {
@@ -94,38 +94,36 @@ export class CheesboardComponent implements OnInit {
       return true;
     }
   }
+  //  ========= highlight horse movies ==========
+
   highlightPosibleHorseMoves(item: Tile) {
     // left top
-    if (this.isInBoard(item.x - 1, item.y - 1)) {
-      this.arr[item.x - 1][item.y - 1].highlight = true;
+    if (this.isInBoard(item.x - 2, item.y - 1)) {
+      this.arr[item.x - 2][item.y - 1].highlight = true;
     }
-    // left
-    if (this.isInBoard(item.x - 1, item.y)) {
-      this.arr[item.x - 1][item.y].highlight = true;
-    }
-    // left bottom
-    if (this.isInBoard(item.x - 1, item.y + 1)) {
-      this.arr[item.x - 1][item.y + 1].highlight = true;
-    }
-    // top
-    if (this.isInBoard(item.x, item.y - 1)) {
-      this.arr[item.x][item.y - 1].highlight = true;
-    }
-    // bottom
-    if (this.isInBoard(item.x, item.y + 1)) {
-      this.arr[item.x][item.y + 1].highlight = true;
+    if (this.isInBoard(item.x - 1, item.y - 2)) {
+      this.arr[item.x - 1][item.y - 2].highlight = true;
     }
     // right top
-    if (this.isInBoard(item.x + 1, item.y - 1)) {
-      this.arr[item.x + 1][item.y - 1].highlight = true;
+    if (this.isInBoard(item.x  + 1, item.y - 2)) {
+      this.arr[item.x + 1][item.y  - 2].highlight = true;
     }
-    // right
-    if (this.isInBoard(item.x + 1, item.y)) {
-      this.arr[item.x + 1][item.y].highlight = true;
+    if (this.isInBoard(item.x + 2, item.y - 1)) {
+      this.arr[item.x + 2][item.y - 1].highlight = true;
     }
     // right bottom
-    if (this.isInBoard(item.x + 1, item.y + 1)) {
-      this.arr[item.x + 1][item.y + 1].highlight = true;
+    if (this.isInBoard(item.x + 2, item.y + 1)) {
+      this.arr[item.x + 2][item.y + 1].highlight = true;
+    }
+    if (this.isInBoard(item.x + 1, item.y + 2)) {
+      this.arr[item.x + 1][item.y + 2].highlight = true;
+    }
+    // left bottom
+    if (this.isInBoard(item.x - 2, item.y + 1)) {
+      this.arr[item.x - 2][item.y + 1].highlight = true;
+    }
+    if (this.isInBoard(item.x - 1, item.y + 2)) {
+      this.arr[item.x - 1][item.y + 2].highlight = true;
     }
   }
   //  ========= highlight king movies ==========
@@ -165,7 +163,7 @@ export class CheesboardComponent implements OnInit {
     }
   }
 
-  //  ========= highlight king movies ==========
+  //  ========= highlight tower movies ==========
   highlightPosibleTowerMoves(item: Tile) {
     // top line
     if (this.isInBoard(item.x, item.y)) {
@@ -222,7 +220,6 @@ export class CheesboardComponent implements OnInit {
       }
     }
     // this.arr[this.xValue][this.yValue].highlight = true;
-    console.log(this.arr);
   }
   getFigure(figure) {
     this.removeHighlight();
@@ -235,6 +232,8 @@ export class CheesboardComponent implements OnInit {
       figureInf.innerHTML = "wybrana figura to król";
     } else if (this.choosenFigure === "horse") {
       figureInf.innerHTML = "wybrana figura to skoczek";
+    } else {
+      figureInf.innerHTML = "wybierz inną figurę";
     }
   }
   getXValue(event) {
@@ -242,7 +241,6 @@ export class CheesboardComponent implements OnInit {
     document.getElementById('field-nr-validate').innerHTML = '';
     if (this.xValue < 1 || this.xValue > 8 || this.yValue.length > 1){
       document.getElementById('field-nr-validate').innerHTML = '*Wpisz cyfrę z zakresu 1-8';
-
     }
   }
 

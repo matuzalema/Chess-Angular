@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class NameService {
-name: '';
+name = 'Adam';
 subjectName = new Subject();
 
   constructor(private router: Router) { }
