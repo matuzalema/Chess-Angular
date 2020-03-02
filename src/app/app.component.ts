@@ -8,17 +8,6 @@ import { getLocaleDateFormat } from '@angular/common';
 })
 export class AppComponent {
   title = 'chees';
-
-
-
-
-
-
-
-
-
-
-
 }
 export class Tile {
   constructor(
@@ -26,7 +15,6 @@ export class Tile {
     public y: number,
     public highlight: boolean,
     public figure: string,
-    public choosenFile: boolean,
     public imageSrc: string
   ) {}
 }

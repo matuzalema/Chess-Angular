@@ -4,7 +4,7 @@
   text-align: center;
 }
 .chees-board {
-  width: 400px;
+  width: 431px;
   height: 400px;
   margin: 0 auto;
   margin-top: 50px;
@@ -14,14 +14,63 @@
   cursor: pointer;
   box-shadow: 0px 0px 8px  #255F69;
 
+
   .tile {
     width: 50px;
     height: 50px;
+    position: relative;
+    top: -215px;
+    left: 15.5px;
   }
-      .figureOnBoard {
-        position: relative;
-        top: 4px;
+
+  .figureOnBoard {
+    position: relative;
+    top: 4px;
+  }
+
+  .letters-board {
+  width: 30px;
+  position: relative;
+  border-right:1px solid rgb(155, 85, 85);
+    .letter {
+      font-size: 20px;
+      text-transform: uppercase;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(181, 136, 99);
+      color: #fff;
+    }
+  }
+  .numbers-board {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  position: relative;
+  top: -430px;
+  left: -30px;
+  margin-left: 30px;
+  border-bottom:1px solid rgb(155, 85, 85);
+  box-shadow: 2px -3px 8px  rgba(37, 95, 105, 0.598);
+  &::before {
+        content: '';
+        width: 31px;
+        background-color: rgb(181, 136, 99);
       }
+
+    .num {
+      font-size: 20px;
+      height: 30px;
+      width: 50px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(181, 136, 99);
+      color: #fff;
+    }
+  }
 }
 
 h1 {
@@ -85,10 +134,19 @@ form {
       outline: none;
     }
   }
+  .validate {
+    color: red;
+    font-size: 12px;
+  }
 }
 p {
   text-align: center;
   font-size: 18px;
   color: #255F69;
   font-weight: 600;
+}
+#incorrect-move-info {
+  color: red;
+  margin-top: 15px;
+  font-size: 14px;
 }

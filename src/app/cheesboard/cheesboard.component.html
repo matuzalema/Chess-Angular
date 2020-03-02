@@ -11,21 +11,37 @@
   </div>
   <p id='figure-info'></p>
   <form (ngSubmit)='onSubmit()' #contactForm='ngForm'>
-    <label for='xValue'>Wpisz wartość x: </label>
-    <input [value]='xValue' id='xValue' name='xValue' class='input-x-value' type='text' (input)='getXValue($event)'>
-    <label for='yValue'>Wpisz wartość y: </label>
-    <input [value]='yValue' id='yValue' name='yValue' class='input-y-value' type='text' (input)='getYValue($event)'>
+    <label for='xValue'>Podaj liczbę (1-8) </label>
+    <input [value]='xValue' id='xValue' type='number' name='xValue' class='input-x-value' min='1' max='8' (input)='getXValue($event)' required>
+    <div id='field-nr-validate' class='validate'></div>
+    <label for='yValue'>Podaj literę (A-H)</label>
+    <input [value]='yValue' id='yValue' name='yValue' class='input-y-value' type='text' (input)='getYValue($event)' required>
+    <div id='field-letter-validate' class='validate'></div>
     <button type='submit'>wykonaj ruch</button>
   </form>
+  <div id='incorrect-move-info'></div>
   <div class='chees-board'>
+    <div class='letters-board'>
+      <div class='letter'>a</div>
+      <div class='letter'>b</div>
+      <div class='letter'>c</div>
+      <div class='letter'>d</div>
+      <div class='letter'>e</div>
+      <div class='letter'>f</div>
+      <div class='letter'>g</div>
+      <div class='letter'>h</div>
+    </div>
+    <div class='numbers-board'>
+      <div class='number' class='num' *ngFor='let number of [1, 2, 3, 4, 5, 6, 7, 8]'>{{number}}</div>
+    </div>
     <div class='tile' *ngFor='let tile of arr'>
       <div class='tile' (click)='getTailClicked(item)' *ngFor='let item of tile' [ngStyle]="{backgroundColor: getColor(item)}">
-      <ng-container *ngIf="item.choosenFile && item.figure==='king'; else towerFigure">
+      <ng-container *ngIf="item.figure==='king'; else towerFigure">
         <img class='figureOnBoard' src="{{king}}" width='25px'>
       </ng-container>
 
       <ng-template #towerFigure>
-        <div *ngIf="item.choosenFile && item.figure==='tower'">
+        <div *ngIf="item.figure==='tower'">
           <img class='figureOnBoard' src="{{tower}}" width='25px'>
         </div>
       </ng-template>

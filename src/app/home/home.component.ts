@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { OuterSubscriber } from 'rxjs/internal/OuterSubscriber';
 
 @Component({
   selector: "app-home",
@@ -7,25 +8,17 @@ import { Router } from '@angular/router';
   styleUrls: ["./home.component.scss"]
 })
 export class HomeComponent implements OnInit {
-  boardLink;
-  name = "dupa";
-  routerPath = "";
   constructor(private router: Router) {}
+  name: string;
 
   ngOnInit(): void {}
   showPrompt() {
     this.name = prompt("wpisz swoje imię");
     if (this.name === "") {
       this.router.navigate(["/home"]);
+      document.getElementById('name-validate-field').innerHTML = 'Wpisz prawidłowe imię';
     } else {
       this.router.navigate(["/board"]);
     }
   }
-  // jadzia() {
-  //   if (name !== '') {
-  //     this.routerPath = "/home";
-  //     } else {
-  //    this.routerPath = "/board";
-  //     }
-  //   }
 }
