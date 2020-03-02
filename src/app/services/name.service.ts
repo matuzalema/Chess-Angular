@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -15,11 +14,11 @@ subjectName = new Subject();
 
   showPrompt() {
     this.name = prompt('wpisz swoje imię');
-    if (this.name === "") {
-      this.router.navigate(["/home"]);
+    if (this.name === '') {
+      this.router.navigate(['/home']);
       document.getElementById('name-validate-field').innerHTML = 'Wpisz swoje imię';
     } else {
-      this.router.navigate(["/board"]);
+      this.router.navigate(['/board']);
     }
   }
 }
