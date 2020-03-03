@@ -14,7 +14,7 @@ subjectName = new Subject();
 
   showPrompt() {
     this.name = prompt('wpisz swoje imię');
-    if (this.name === '') {
+    if (this.name === '' || this.name === null) {
       this.router.navigate(['/home']);
       document.getElementById('name-validate-field').innerHTML = 'Wpisz swoje imię';
     } else {
